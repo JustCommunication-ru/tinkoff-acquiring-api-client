@@ -1,0 +1,18 @@
+{
+    "name": "justcommunication-ru/tinkoff-acquiring-api-client",
+    "description": "Tinkoff Acquiring API PHP Client",
+    "keywords": ["tinkoff","api","sdk","acquiring"],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "psr/log": "*",
+        "guzzlehttp/guzzle": "^6.2",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {"JustCommunication\\TinkoffAcquiringAPIClient\\": "src/"}
+    }
+}
