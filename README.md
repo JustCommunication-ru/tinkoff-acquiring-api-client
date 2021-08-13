@@ -150,7 +150,7 @@ $client->setHttpClient($httpClient);
 $client->setLogger($someLogger);
 ```
 
-По-умолчанию логирование отключено.
+По-умолчанию логирование отключено
 
 ## Тесты
 
