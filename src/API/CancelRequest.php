@@ -64,6 +64,24 @@ class CancelRequest extends AbstractRequest
     }
 
     /**
+     * @return int
+     */
+    public function getAmount()
+    {
+        return $this->Amount;
+    }
+
+    /**
+     * @param int $Amount
+     * @return $this
+     */
+    public function setAmount($Amount)
+    {
+        $this->Amount = $Amount;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getIP()

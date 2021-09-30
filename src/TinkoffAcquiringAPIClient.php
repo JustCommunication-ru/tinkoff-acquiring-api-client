@@ -5,7 +5,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use JustCommunication\TinkoffAcquiringAPIClient\API\RequestInterface;
 use JustCommunication\TinkoffAcquiringAPIClient\API\ResponseInterface;
-use JustCommunication\TinkoffAcquiringAPIClient\API\TokenAwareRequest;
 use JustCommunication\TinkoffAcquiringAPIClient\Exception\TinkoffAPIException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;

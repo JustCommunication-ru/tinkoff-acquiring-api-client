@@ -117,13 +117,13 @@ class InitRequest extends AbstractRequest
     /**
      * InitRequest constructor.
      *
-     * @param int $amount
-     * @param string $order_id
+     * @param int $Amount сумма в копейках
+     * @param string $OrderId идентификатор заказа в системе продавца
      */
-    public function __construct($amount, $order_id)
+    public function __construct($Amount, $OrderId)
     {
-        $this->Amount = $amount;
-        $this->OrderId = $order_id;
+        $this->Amount = $Amount;
+        $this->OrderId = $OrderId;
     }
 
     /**
@@ -135,7 +135,7 @@ class InitRequest extends AbstractRequest
     }
 
     /**
-     * @param string $OrderId
+     * @param string $OrderId идентификатор заказа в системе продавца
      * @return InitRequest
      */
     public function setOrderId($OrderId)
@@ -153,7 +153,7 @@ class InitRequest extends AbstractRequest
     }
 
     /**
-     * @param int $Amount
+     * @param int $Amount сумма в копейках
      * @return InitRequest
      */
     public function setAmount($Amount)
