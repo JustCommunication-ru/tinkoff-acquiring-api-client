@@ -1,8 +1,11 @@
 <?php
 
-use JustCommunication\TinkoffAcquiringAPIClient\API\ConfirmRequest;
+namespace Tests\API;
 
-class ConfirmRequestTest extends PHPUnit_Framework_TestCase
+use JustCommunication\TinkoffAcquiringAPIClient\API\ConfirmRequest;
+use PHPUnit\Framework\TestCase;
+
+class ConfirmRequestTest extends TestCase
 {
     public function testCreate()
     {

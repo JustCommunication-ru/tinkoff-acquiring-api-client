@@ -1,14 +1,20 @@
 <?php
-use JustCommunication\TinkoffAcquiringAPIClient\TinkoffAcquiringAPIClient;
 
-class TinkoffAcquiringAPIClientTest extends PHPUnit_Framework_TestCase
+namespace Tests;
+
+use BadMethodCallException;
+use JustCommunication\TinkoffAcquiringAPIClient\API\GetStateRequest;
+use JustCommunication\TinkoffAcquiringAPIClient\TinkoffAcquiringAPIClient;
+use PHPUnit\Framework\TestCase;
+
+class TinkoffAcquiringAPIClientTest extends TestCase
 {
     public function testCallUndefinedMethod()
     {
         $client = new TinkoffAcquiringAPIClient('token', 'secret');
 
         $this->expectException(BadMethodCallException::class);
-        $client->callSomeUndefinedRequest(new \JustCommunication\TinkoffAcquiringAPIClient\API\GetStateRequest(123));
+        $client->callSomeUndefinedRequest(new GetStateRequest(123));
     }
 
     public function testCreateHttpClientWithDefault()

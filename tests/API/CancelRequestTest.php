@@ -1,8 +1,11 @@
 <?php
 
-use JustCommunication\TinkoffAcquiringAPIClient\API\CancelRequest;
+namespace Tests\API;
 
-class CancelRequestTest extends PHPUnit_Framework_TestCase
+use JustCommunication\TinkoffAcquiringAPIClient\API\CancelRequest;
+use PHPUnit\Framework\TestCase;
+
+class CancelRequestTest extends TestCase
 {
     public function testCreate()
     {

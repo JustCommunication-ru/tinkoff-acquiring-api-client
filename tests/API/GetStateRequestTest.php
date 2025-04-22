@@ -1,8 +1,11 @@
 <?php
 
-use JustCommunication\TinkoffAcquiringAPIClient\API\GetStateRequest;
+namespace Tests\API;
 
-class GetStateRequestTest extends PHPUnit_Framework_TestCase
+use JustCommunication\TinkoffAcquiringAPIClient\API\GetStateRequest;
+use PHPUnit\Framework\TestCase;
+
+class GetStateRequestTest extends TestCase
 {
     public function testCreate()
     {

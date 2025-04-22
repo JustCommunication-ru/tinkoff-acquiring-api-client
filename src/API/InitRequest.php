@@ -1,6 +1,8 @@
 <?php
 namespace JustCommunication\TinkoffAcquiringAPIClient\API;
 
+use JustCommunication\TinkoffAcquiringAPIClient\Model\ReceiptInterface;
+
 /**
  * Class InitRequest
  *
@@ -113,6 +115,8 @@ class InitRequest extends AbstractRequest
      * @var array
      */
     protected $data = [];
+
+    protected ?ReceiptInterface $receipt = null;
 
     /**
      * InitRequest constructor.
@@ -392,6 +396,18 @@ class InitRequest extends AbstractRequest
         return $this;
     }
 
+    public function getReceipt(): ?ReceiptInterface
+    {
+        return $this->receipt;
+    }
+
+    public function setReceipt(?ReceiptInterface $receipt): self
+    {
+        $this->receipt = $receipt;
+
+        return $this;
+    }
+
     public function createHttpClientParams()
     {
         $params = [
@@ -441,6 +457,10 @@ class InitRequest extends AbstractRequest
 
         if ($this->data) {
             $params['DATA'] = $this->data;
+        }
+
+        if ($this->receipt) {
+            $params['Receipt'] = $this->receipt;
         }
 
         return [
