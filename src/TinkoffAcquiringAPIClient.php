@@ -11,8 +11,6 @@ use Psr\Log\LoggerAwareTrait;
 use Psr\Log\NullLogger;
 
 /**
- * Class TinkoffAcquiringAPIClient
- *
  * @method API\InitResponse sendInitRequest(API\InitRequest $request)
  * @method API\GetStateResponse sendGetStateRequest(API\GetStateRequest $request)
  * @method API\ConfirmResponse sendConfirmRequest(API\ConfirmRequest $request)
@@ -40,13 +38,11 @@ class TinkoffAcquiringAPIClient implements LoggerAwareInterface
     protected $secret;
 
     /**
-     * @var \GuzzleHttp\Client
+     * @var Client
      */
     protected $httpClient;
 
     /**
-     * TinkoffAcquiringAPIClient constructor.
-     *
      * @param string $terminal_key
      * @param string $secret
      * @param Client|array|null $httpClientOrOptions
@@ -77,8 +73,22 @@ class TinkoffAcquiringAPIClient implements LoggerAwareInterface
      */
     public function sendRequest(RequestInterface $request)
     {
+        $this->logger->info('Tinkoff acquiring API request {http_method} {uri}', [
+            'http_method' => $request->getHttpMethod(),
+            'uri' => $request->getUri(),
+            'request_params' => $request->createHttpClientParams()
+        ]);
+
         /** @var Response $response */
         $response = $this->createAPIRequestPromise($request)->wait();
+
+        $this->logger->info('Tinkoff acquiring API {http_method} {uri} response {response_code}', [
+            'http_method' => $request->getHttpMethod(),
+            'uri' => $request->getUri(),
+            'response_code' => $response->getStatusCode(),
+            'response' => (string)$response->getBody()
+        ]);
+
         return $this->createAPIResponse($response, $request->getResponseClass());
     }
 
