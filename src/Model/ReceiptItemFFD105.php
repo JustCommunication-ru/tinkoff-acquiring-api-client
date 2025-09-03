@@ -16,7 +16,7 @@ class ReceiptItemFFD105 implements JsonSerializable
     protected ?string $ean13;
     protected ?string $shopCode;
 
-    public function __construct(string $name, int $price, int $quantity, string $tax, ?string $paymentMethod = null, ?string $paymentObject = null, ?string $ean13 = null, ?string $shopCode = null, ?string $measurementUnit= null, )
+    public function __construct(string $name, int $price, int $quantity, string $tax, ?string $paymentMethod = null, ?string $paymentObject = null, ?string $ean13 = null, ?string $shopCode = null, ?string $measurementUnit = null)
     {
         $this->name = $name;
         $this->price = $price;
