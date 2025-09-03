@@ -152,7 +152,7 @@ class InitRequestTest extends TestCase
 
         $receipt = new ReceiptFFD105('test@test.ru', '89681111111', ReceiptFFD105::TAXATION_OSN, [
             new ReceiptItemFFD105('Первая позиция', 1000, 2, ReceiptFFD105::TAXATION_OSN),
-            new ReceiptItemFFD105('Вторая позиция', 500, 3, ReceiptFFD105::TAXATION_USN_INCOME, 'advance', 'excise', 'test-ean-13', 'test-shop'),
+            new ReceiptItemFFD105('Вторая позиция', 500, 3, ReceiptFFD105::TAXATION_USN_INCOME, 'advance', 'excise',  'test-ean-13', 'test-shop', 'шт'),
         ]);
 
         $request->setReceipt($receipt);
@@ -180,6 +180,7 @@ class InitRequestTest extends TestCase
                             'Tax' => 'usn_income',
                             'PaymentMethod' => 'advance',
                             'PaymentObject' => 'excise',
+                            'MeasurementUnit' => 'шт',
                             'Ean13' => 'test-ean-13',
                             'ShopCode' => 'test-shop'
                         ]
@@ -199,7 +200,7 @@ class InitRequestTest extends TestCase
 
         $receipt = new ReceiptFFD12('test@test.ru', '89681111111', ReceiptFFD105::TAXATION_OSN, [
             new ReceiptItemFFD12('Первая позиция', 1000, 2, ReceiptFFD105::TAXATION_OSN, null, 'excise'),
-            new ReceiptItemFFD12('Вторая позиция', 500, 3, ReceiptFFD105::TAXATION_USN_INCOME, 'advance', 'excise', 'test-ean-13', 'test-shop'),
+            new ReceiptItemFFD12('Вторая позиция', 500, 3, ReceiptFFD105::TAXATION_USN_INCOME, 'advance', 'excise', 'test-ean-13', 'test-shop', 'шт'),
         ]);
 
         $clientInfo = new ReceiptFFD12ClientInfo();
@@ -244,6 +245,7 @@ class InitRequestTest extends TestCase
                             'Tax' => 'usn_income',
                             'PaymentMethod' => 'advance',
                             'PaymentObject' => 'excise',
+                            'MeasurementUnit' => 'шт',
                             'Ean13' => 'test-ean-13',
                             'ShopCode' => 'test-shop'
                         ]

@@ -12,10 +12,11 @@ class ReceiptItemFFD12 implements JsonSerializable
     protected string $tax;
     protected ?string $paymentMethod;
     protected ?string $paymentObject;
+    protected ?string $measurementUnit;
     protected ?string $ean13;
     protected ?string $shopCode;
 
-    public function __construct(string $name, int $price, int $quantity, string $tax, ?string $paymentMethod = null, ?string $paymentObject = null, ?string $ean13 = null, ?string $shopCode = null)
+    public function __construct(string $name, int $price, int $quantity, string $tax, ?string $paymentMethod = null, ?string $paymentObject = null, ?string $ean13 = null, ?string $shopCode = null, ?string $measurementUnit = null)
     {
         $this->name = $name;
         $this->price = $price;
@@ -23,6 +24,7 @@ class ReceiptItemFFD12 implements JsonSerializable
         $this->tax = $tax;
         $this->paymentMethod = $paymentMethod;
         $this->paymentObject = $paymentObject;
+        $this->measurementUnit = $measurementUnit;
         $this->ean13 = $ean13;
         $this->shopCode = $shopCode;
     }
@@ -135,6 +137,10 @@ class ReceiptItemFFD12 implements JsonSerializable
 
         if ($this->paymentObject) {
             $data['PaymentObject'] = $this->paymentObject;
+        }
+
+        if ($this->measurementUnit) {
+            $data['MeasurementUnit'] = $this->measurementUnit;
         }
 
         if ($this->ean13) {
