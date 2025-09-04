@@ -56,6 +56,28 @@ class TinkoffAcquiringAPIClient implements LoggerAwareInterface
         $this->httpClient = self::createHttpClient($httpClientOrOptions);
     }
 
+    public function getTerminalKey(): string
+    {
+        return $this->terminal_key;
+    }
+
+    public function setTerminalKey(string $terminal_key): self
+    {
+        $this->terminal_key = $terminal_key;
+        return $this;
+    }
+
+    public function getSecret(): string
+    {
+        return $this->secret;
+    }
+
+    public function setSecret(string $secret): self
+    {
+        $this->secret = $secret;
+        return $this;
+    }
+
     public function __call($name, array $arguments)
     {
         if (0 === \strpos($name, 'send')) {
